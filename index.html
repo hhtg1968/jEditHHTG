@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTextJS 1.0 (c) hhtg. 2023</title>
+    <!-- lv v1 28-11-2023 12h06 -->
+    <style>
+        #buttonRow{
+            font-size: smaller;
+            background-color: #0000ee;
+            color: #ffffff;
+            border: 2px solid #555555;
+        }
+        #textField{
+            /* font-size:larger; */
+            /* font-family: monospace; */
+            background-color: #555555;
+            color: #ffffff;
+            border: 2px solid #555555;
+        }
+        #textbox{
+            font-family: monospace;
+            font-size: large;
+        }
+        #exportField{
+            background-color: #00aa00;
+            color: #eeeeee;
+            border: 2px solid #555555;
+        }
+        #clip{
+            background-color: #dd0000;
+            color: #eeeeee;
+            border: 2px solid #555555
+        }
+        #copyright{
+            text-align: right
+        }
+    </style>
+    <script defer="true">
+        function doNew(){
+            document.getElementById("textbox").value="new ...";
+        }
+        function doRandom(){
+            document.getElementById("textbox").value="random ...";
+        }
+        function doExport(){
+            insert=document.getElementById("textbox").value;
+            document.getElementById("exportPreview").innerHTML=insert;
+        }
+        function doPreview(){
+            let insert="clipboard to come in future ..."
+            document.getElementById("exportPreview").innerHTML=insert;
+        }
+        function doSelAll(){
+            let selection=document.getElementById("textbox").select();        
+        }
+        function doCopy(){
+            // let textforclip=document.getElementById("textbox").value.selectedRange(0,99999);
+            // clipboard.writeText(copyText.value);
+        }
+        function doPaste(){
+            //document.getElementById("textbox").execCommand("paste");
+        }
+        function doInfo(){
+            alert("javascript Text Editor v1 by hhtg. 2023!");
+        }
+    </script>
+</head>
+<body>
+    <div id="buttonRow">
+        <button onclick="doNew()">new</button>
+        <button onclick="doRandom()">random</button>
+        <label for="textName">file name:</label>
+        <input id="textName" type text value="untiteld.txt">
+        <button>save</button>
+        <button>save as...</button>
+        <button>load...</button>
+        <br>
+        <button>print...</button>
+        <button onclick="doExport()">export...</button>
+        <button onclick="doPreview()">export clipboard ...</button>
+        <button onclick="doSelAll()">select all</button>
+        <button onclick="doCopy()">copy</button>
+        <button>cut</button>
+        <button onclick=""doPaste()>paste</button>
+        <button onclick="doInfo()">INFO!</button>
+    </div>
+    <div id="textField">
+        <label for="textbox">text:</label>
+        <div id="copyright">jEditV1hhtg2023</div>
+        <textarea id="textbox" rows="24" cols="80">empty universe ...</textarea>
+    </div>
+    <div id="clip">
+        <label for="clipb">clipboard:</label>
+        <p id="clipb">
+            clipboard content
+        </p>
+    </div>
+    <div id="exportField">
+        <label for="exportPreview">export area:</label>
+        <p id="exportPreview">
+            area for export preview...
+        </p>
+    </div>
+</body>
+</html>
